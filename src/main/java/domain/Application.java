@@ -20,7 +20,7 @@ public class Application implements Serializable {
     //标识属性
     private Integer id;
     //申请理由
-    @Column(name = "app_reason" , length = 50)
+    @Column(name = "app_reason" , length = 254)
     private String reason;
     //是否处理
     @Column(name = "app_result")

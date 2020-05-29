@@ -7,7 +7,7 @@
         <!-- 指定连接数据库所用的驱动 -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!-- 指定连接数据库的url，其中hibernate是本应用连接的数据库名 -->
-        <property name="connection.url">jdbc:mysql://localhost/system?serverTimezone=UTC&amp;useSSL=true</property>
+        <property name="connection.url">jdbc:mysql://localhost/checksystem?serverTimezone=UTC&amp;useSSL=true</property>
         <!-- 指定连接数据库的用户名 -->
         <property name="connection.username">root</property>
         <!-- 指定连接数据库的密码 -->
@@ -24,6 +24,9 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         <property name="hibernate.c3p0.acquire_increment">2</property>
         <property name="hibernate.c3p0.validate">true</property>
+        <!--日志存放位置和日志名-->
+        <property name="LOG_HOME">/logs</property>
+        <property name="LOG_FILE_NAME">loveccdata</property>
         <!--开启二级缓存-->
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <!--设置缓存区的实现类-->

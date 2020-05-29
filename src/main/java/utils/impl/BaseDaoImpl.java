@@ -33,7 +33,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     public void delete(Class<T> entityClazz, Serializable id) {
         getSessionFactory().getCurrentSession()
                 .createQuery("delete " + entityClazz.getSimpleName()
-                        + " en where en.id like ?")
+                        + " en where en.id = ?1")
                 .setParameter(1 , id)
                 .executeUpdate();
     }
@@ -70,12 +70,15 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
         // Ϊ����ռλ����HQL������ò���
         for(int i = 0 , len = params.length ; i < len ; i++)
         {
-            query.setParameter(i + "" , params[i]);
+            query.setParameter(i , params[i]);
         }
         return (List<T>)query.getResultList();
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * pageNo第几页数据
+     */
     protected List<Object> findByPage(String hql, int pageNo, int pageSize)
     {
         return getSessionFactory().getCurrentSession()
@@ -92,7 +95,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
                 .createQuery(hql);
         for(int i = 0 , len = params.length ; i < len ; i++)
         {
-            query.setParameter(i + "" , params[i]);
+            query.setParameter(i , params[i]);
         }
         // ִ�з�ҳ�������ز�ѯ���
         return query.setFirstResult((pageNo - 1) * pageSize)

@@ -20,9 +20,9 @@ public class Employee implements Serializable {
     @Column(name = "employee_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "employee_name" , nullable = false , unique = true)
+    @Column(name = "employee_name" , nullable = false , unique = true , length = 50)
     private String name;
-    @Column(name = "employee_pass" , nullable = false)
+    @Column(name = "employee_pass" , nullable = false , length = 50)
     private String pass;
     @Column(name = "employee_salary" , nullable = false)
     //员工工资
@@ -41,7 +41,8 @@ public class Employee implements Serializable {
     public Employee() {
     }
 
-    public Employee(String name, String pass, double salary, Manager manager, Set<Attend> attends, Set<Payment> payments) {
+    public Employee(int id,String name, String pass, double salary, Manager manager, Set<Attend> attends, Set<Payment> payments) {
+        this.id = id;
         this.name = name;
         this.pass = pass;
         this.salary = salary;

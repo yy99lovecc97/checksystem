@@ -19,13 +19,13 @@ public class Attend implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     //出勤日期
-    @Column(name = "duty_day")
+    @Column(name = "duty_day" , nullable = false , length = 50)
     private String dutyDay;
     //打卡时间
     @Column(name = "punch_time")
     private Date punchTime;
     //代表本次打卡是否为上班打卡
-    @Column(name = "is_come")
+    @Column(name = "is_come" , nullable = false)
     private boolean isCome;
     @ManyToOne(targetEntity = AttendType.class)
     @JoinColumn(name = "attend_type_id" , nullable = false)

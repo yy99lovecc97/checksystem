@@ -16,7 +16,7 @@ public class Payment implements Serializable {
     @Column(name = "payment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "payment_payMonth" , nullable = false)
+    @Column(name = "payment_payMonth" , nullable = false , length = 50)
     //月份
     private String payMonth;
     @Column(name = "payment_amount" , nullable = false)
