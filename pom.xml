@@ -30,7 +30,7 @@
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-core</artifactId>
-      <version>2.5.20</version>
+      <version>2.5.22</version>
     </dependency>
     <!--hibernate所依赖的jar包以及c3p0数据库连接池以及log4j-->
     <dependency>
